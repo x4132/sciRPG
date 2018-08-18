@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Prepare For Your Journey</title>
+        <link rel="stylesheet" href="css/index.css" type="text/css" />
+        <script type="text/javascript" src="js/level1.js"></script>
+    </head>
+    <body onload="init()">
+        <h1>Level 1</h1>
+        <p id="data">
+            Welcome to your first adventure. <br>
+            You See an Size Mutated Worm. It is almost as big as you.<br>
+            It has 80 health.<br>
+            You slowly walk back in disgust.<br>
+            Choose your attack:
+        </p>
+        <button id="1" onclick="attack(1)"><h3>Use Primary Weapon</h3></button>
+        <button id="2" onclick="attack(2)"><h3>Use Secondary Weapon</h3></button>
+        <button id="3" onclick="attack(3)"><h3>Use Melee Attack</h3></button>
+        <button id="4" onclick="attack(4)"><h3>Use Skill Attack(Fire, etc)</h3></button>
+        <p></p>
+        <h1>Stats:</h1>
+        <h2>Health(With Armor/Shield): <span id="health">100</span></h2>
+        <h2>Enemy Health: <span id="enemyHealth">0</span></h2>
+        <h3>Primary Weapon: <span id="primaryWeapon"></span> Damage: <span id="weapon1Damage"></span></h3>
+        <h3>Secondary Weapon: <span id="secondaryWeapon"></span> Damage: <span id="weapon2Damage"></span></h3>
+        <h3>Melee Weapon: <span id="meleeWeapon"></span> Damage: <span id="meleeDamage"></span></h3>
+        <h3>Skill Level: <span id="skillLevel"></span></h3>
+    </body>
+</html>
