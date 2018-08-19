@@ -24,6 +24,8 @@ function attack(choice)
         if(enemyHealth < 0)
         {
             enemyHealth = 0;
+            actionStat.innerHTML = "Kiled " + enemy;
+            update();
             win();
         } else if (health <= 0)
         {
@@ -46,6 +48,8 @@ function attack(choice)
         if(enemyHealth < 0)
         {
             enemyHealth = 0;
+            update();
+            actionStat.innerHTML = "Kiled " + enemy;
             win();
         } else if (health <= 0)
         {
@@ -68,6 +72,7 @@ function attack(choice)
         if(enemyHealth < 0)
         {
             enemyHealth = 0;
+            actionStat.innerHTML = "Kiled " + enemy;
             update();
             win();
         } else if (health <= 0)
