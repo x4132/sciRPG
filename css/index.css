@@ -1,0 +1,45 @@
+body{
+    font-family: "Arial, Droid Sans";
+}
+
+.right {
+  float: right;
+}
+.left{
+  float: left;
+}
+
+#yourhealth{
+  background-color: green;
+  width: 120px;
+  height: 120px;
+  border-radius: 75px;
+  padding: 20px;
+  float:left;
+}
+
+#health{
+  color: white;
+}
+
+
+#enemyBox {
+  background-color: red;
+  width: 120px;
+  height: 120px;
+  border-radius: 75px;
+  padding: 20px;
+  float:left;
+}
+
+#enemyHealth {
+  color:white;
+}
+
+#enemyStat {
+  float: left;
+}
+
+#healthgraph{
+  text-align:center;
+}
