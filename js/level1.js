@@ -10,8 +10,6 @@ var enemy = "";
 var enemyHealth = 0;
 var enemyAttack = 0;
 var battlenum = 0;
-var shield;
-var shieldProtection;
 
 
 
@@ -65,7 +63,7 @@ function attack(choice)
     }
     else if (choice == 3)
     {
-        var enemyMulti = enemyAttack * 2;
+        enemyMulti = enemyAttack * 2;
         enemyHealth -= meleeDamage;
         health -= enemyMulti;
 
@@ -190,7 +188,8 @@ function win()
 {
     battlenum++;
     battle(battlenum);
-    skill++;
+    skills++;
+    update();
 }
 
 /*function heal()
