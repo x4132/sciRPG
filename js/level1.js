@@ -192,12 +192,12 @@ function win()
     update();
 }
 
-/*function heal()
+function heal()
 {
-  if (skill > 0)
+  if (skills > 0)
   {
     health += 60;
-    skill--;
+    skills--;
     update();
   }
-}*/
+}
