@@ -30,9 +30,10 @@ function attack(choice)
             health = 0;
             update();
             alert("YOU DIED");
-            location.replace("index.html")
+            location.replace("level1.html");
         } else {
             text.innerHTML = "You atttacked with your " + weapon1 +" And inflicted " + weapon1Damage + " Damage. " + "the enemy Attacked and you took " + enemyAttack + " Damage.";
+            actionStat.innerHTML = "Used Primary Weapon";
         }
         update();
     }
@@ -51,9 +52,10 @@ function attack(choice)
             health = 0;
             update();
             alert("YOU DIED");
-            location.replace("index.html")
+            location.replace("level1.html");
         } else {
             text.innerHTML = "You atttacked with your " + weapon2 +" And inflicted " + weapon2Damage + " Damage. " + "the enemy Attacked and you took " + enemyMulti + " Damage.";
+            actionStat.innerHTML = "Used Secondary Weapon";
         }
         update();
     }
@@ -73,35 +75,12 @@ function attack(choice)
             health = 0;
             update();
             alert("YOU DIED");
-            location.replace("index.html")
+            location.replace("level1.html");
         } else {
             text.innerHTML = "You atttacked with your " + melee +" And inflicted " + meleeDamage + " Damage. " + "the enemy Attacked and you took " + enemyMulti + " Damage.";
+            actionStat.innerHTML = "Used Melee Weapon";
         }
         update();
-    }
-    else if (choice == 4)
-    {
-        var skillTotal = skills / 10;
-        var damageTotal = weapon1Damage / 10;
-        var totaldamage = Math.floor(skillTotal * damageTotal + 1);
-        enemyHealth -= totaldamage;
-        health -= enemyAttack / 2;
-        if(enemyHealth < 0)
-        {
-            enemyHealth = 0;
-            update();
-            win();
-        }else if (health <= 0)
-        {
-            alert("YOU DIED");
-            location.replace("index.html")
-        }
-        else {
-            var enemyMulti = enemyAttack /2;
-            text.innerHTML = "You atttacked with your Skills And inflicted " + totaldamage + " Damage. " + "the enemy Attacked and you took " + enemyMulti + " Damage.";
-        }
-        update();
-
     }
 }
 
@@ -152,7 +131,7 @@ function battle(number)
     }
     else if (number == 6)
     {
-        text.innerHTML = "You loot the tree and get an class XV medkit and a Large HyperBlaster. it does 150 damage. there is also some level 3 body armor, which you equip. "
+        text.innerHTML = "You loot the tree and get an class XV medkit and a Large HyperBlaster. it does 150 damage. there is also some level 3 body armor, which you equip. ";
     }
 }
 
@@ -167,9 +146,12 @@ var meleeWeaponDamage;
 var skillLevelStat;
 var text;
 var ShieldStat;
+var enemyStat;
+var actionStat;
 
 function init()
 {
+  enemyStat = document.getElementById("enemy");
     healthStat = document.getElementById("health");
     enemyHealthStat = document.getElementById("enemyHealth");
     primaryWeaponStat = document.getElementById("primaryWeapon");
@@ -180,7 +162,8 @@ function init()
     primaryWeaponDamage = document.getElementById("weapon1Damage");
     secondaryWeaponDamage = document.getElementById("weapon2Damage");
     meleeWeaponDamage = document.getElementById("meleeDamage");
-    skills = 11;
+    actionStat = document.getElementById("action");
+    skills = 2;
     battle(1);
 }
 
@@ -195,12 +178,7 @@ function update()
     primaryWeaponDamage.innerHTML = weapon1Damage;
     secondaryWeaponDamage.innerHTML = weapon2Damage;
     meleeWeaponDamage.innerHTML = meleeDamage;
-    if (health > 75)
-    {
-        healthStat.style.color="green";
-    } else if (health < 75 && health > 40) {
-        healthStat.style.color
-    }
+    enemyStat.innerHTML = enemy;
 }
 
 function win()
@@ -209,3 +187,13 @@ function win()
     battle(battlenum);
     skill++;
 }
+
+/*function heal()
+{
+  if (skill > 0)
+  {
+    health += 60;
+    skill--;
+    update();
+  }
+}*/
