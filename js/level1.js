@@ -1,9 +1,9 @@
 var health = 100;
 var skills = 0;
 var weapon1 = "AntiMonsterRifle(Automatic)";
-var weapon1Damage = 35;
+var weapon1Damage = 45;
 var weapon2 = "SmLaser+";
-var weapon2Damage = 45;
+var weapon2Damage = 35;
 var melee = "amoDiamondPlasmaBroadSword";
 var meleeDamage = 70;
 var enemy = "";
@@ -17,12 +17,13 @@ function attack(choice)
 {
     if (choice == 1)
     {
-        enemyHealth -= weapon1Damage;
+        var enemyMulti = enemyAttack * 1.5;
+        enemyHealth -= enemyMulti;
         health -= enemyAttack;
         if(enemyHealth < 0)
         {
             enemyHealth = 0;
-            actionStat.innerHTML = "Kiled " + enemy;
+            actionStat.innerHTML = "Killed " + enemy;
             update();
             win();
         } else if (health <= 0)
@@ -39,15 +40,14 @@ function attack(choice)
     }
     else if (choice == 2)
     {
-        var enemyMulti = enemyAttack * 1.5;
         enemyHealth -= weapon2Damage;
-        health -= enemyMulti;
+        health -= enemyAttack;
 
         if(enemyHealth < 0)
         {
             enemyHealth = 0;
             update();
-            actionStat.innerHTML = "Kiled " + enemy;
+            actionStat.innerHTML = "Killed " + enemy;
             win();
         } else if (health <= 0)
         {
@@ -70,7 +70,7 @@ function attack(choice)
         if(enemyHealth < 0)
         {
             enemyHealth = 0;
-            actionStat.innerHTML = "Kiled " + enemy;
+            actionStat.innerHTML = "Killed " + enemy;
             update();
             win();
         } else if (health <= 0)
@@ -99,24 +99,25 @@ function battle(number)
     }
     if (number == 3)
     {
-        text.innerHTML = "Congratulations. You Won. You get an medkit and heal up to full health. As You venture deeper into the forest, you encounter an rogue Android. It picks up some rocks and gets ready to throw them at you.";
+        text.innerHTML = "Congratulations. You Won. You get an medkit.. As You venture deeper into the forest, you encounter an rogue Android. It picks up some rocks and gets ready to throw them at you.";
         enemy = "Rogue Android";
         enemyHealth = 120;
         enemyAttack = 12;
-        health = 100;
+        skills += 1;
         update();
     }
     if (number == 4)
     {
-        text.innerHTML = "Congratulations. You Won. As you Loot the Android you find an MegaLabBlaster that can inflict 60 damage. you also find an old illegal ElitePlasmaKiller sword that does 130 damage. You also get an small laser shield and an class X medkit. You use it. You see an robotic laser Tree. it fires a few warning shots that singe your hair.";
+        text.innerHTML = "Congratulations. You Won. As you Loot the Android you find an MegaLabBlaster that can inflict 50 damage. you also find an old illegal ElitePlasmaKiller sword that does 90 damage. You also get an small laser shield and an medkit. You see an robotic laser Tree. it fires a few warning shots that singe your hair.";
         weapon1 = "MegaLabBlaster";
-        weapon1Damage = 60;
+        weapon1Damage = 50;
         melee = "ElitePlasmaKiller";
-        meleeDamage = 130;
+        meleeDamage = 90;
         enemy = "Laser Tree";
-        enemyHealth = 360;
+        enemyHealth = 570;
         enemyAttack = 20;
-        health = 130;
+        health += 20;
+        skills++;
         update();
 
     }
@@ -134,7 +135,8 @@ function battle(number)
     }
     else if (number == 6)
     {
-        text.innerHTML = "You loot the tree and get an class XV medkit and a Large HyperBlaster. it does 150 damage. there is also some level 3 body armor, which you equip. ";
+        text.innerHTML = "You loot the tree and get 5 medkits and a Large HyperBlaster. it does 150 damage. there is also some level 3 body armor, which you equip. ";
+        skills += 5;
     }
 }
 
@@ -188,7 +190,6 @@ function win()
 {
     battlenum++;
     battle(battlenum);
-    skills++;
     update();
 }
 
@@ -198,6 +199,11 @@ function heal()
   {
     health += 60;
     skills--;
+    actionStat.innerHTML = "You used one medkit. You have " + skills + " medkits left."
     update();
+  }
+  else if (skills <= 0)
+  {
+      actionStat.innerHTML = "You Have No Medkits Left."
   }
 }
