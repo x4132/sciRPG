@@ -18,8 +18,8 @@ function attack(choice)
     if (choice == 1)
     {
         var enemyMulti = enemyAttack * 1.5;
-        enemyHealth -= enemyMulti;
-        health -= enemyAttack;
+        enemyHealth -= weapon1Damage;
+        health -= enemyMulti;
         if(enemyHealth < 0)
         {
             enemyHealth = 0;
