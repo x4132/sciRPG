@@ -7,8 +7,30 @@
         <script type="text/javascript" src="js/level1.js"></script>
     </head>
     <body onload="init()">
-        <h1>Level 1</h1>
-        <p id="data">
+        <!--<button onclick="heal()" class="right"><h2>Heal</h2></button><br> -->
+        <div id="healthgraph">
+        <div id="yourhealth"><h3>Your Health:<br>
+        <span id="health"></span></h3>
+        </div>
+        
+        <h1 id="enemyStat">
+          Forest #1
+          <br>
+          You VS <span id="enemy"></span>
+        <br>
+          <span id="action"></span>
+        </h1>
+        
+        <div id="enemyBox">
+          <h3>Enemy Health:
+          <br>
+          <span id="enemyHealth"></span></h3>
+        </div>
+        </div>
+        
+        <!--Beginning of basic storytelling-->
+        <br><br><br><br><br><br><br><br>
+            <p id="data">
             Welcome to your first adventure. <br>
             You See an Size Mutated Worm. It is almost as big as you.<br>
             It has 80 health.<br>
@@ -18,11 +40,7 @@
         <button id="1" onclick="attack(1)"><h3>Use Primary Weapon</h3></button>
         <button id="2" onclick="attack(2)"><h3>Use Secondary Weapon</h3></button>
         <button id="3" onclick="attack(3)"><h3>Use Melee Attack</h3></button>
-        <button id="4" onclick="attack(4)"><h3>Use Skill Attack(Fire, etc)</h3></button>
-        <p></p>
         <h1>Stats:</h1>
-        <h2>Health(With Armor/Shield): <span id="health">100</span></h2>
-        <h2>Enemy Health: <span id="enemyHealth">0</span></h2>
         <h3>Primary Weapon: <span id="primaryWeapon"></span> Damage: <span id="weapon1Damage"></span></h3>
         <h3>Secondary Weapon: <span id="secondaryWeapon"></span> Damage: <span id="weapon2Damage"></span></h3>
         <h3>Melee Weapon: <span id="meleeWeapon"></span> Damage: <span id="meleeDamage"></span></h3>
