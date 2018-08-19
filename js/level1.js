@@ -1,5 +1,5 @@
 var health = 100;
-var skills = 0;
+var medkits = 0;
 var weapon1 = "AntiMonsterRifle(Automatic)";
 var weapon1Damage = 45;
 var weapon2 = "SmLaser+";
@@ -10,6 +10,7 @@ var enemy = "";
 var enemyHealth = 0;
 var enemyAttack = 0;
 var battlenum = 0;
+var medkitsl = 0;
 
 
 
@@ -103,7 +104,7 @@ function battle(number)
         enemy = "Rogue Android";
         enemyHealth = 120;
         enemyAttack = 12;
-        skills += 1;
+        medkits += 1;
         update();
     }
     if (number == 4)
@@ -117,11 +118,11 @@ function battle(number)
         enemyHealth = 570;
         enemyAttack = 20;
         health += 20;
-        skills++;
+        medkits++;
         update();
 
     }
-    if (number == 5)
+    if (number == 6)
     {
         location.replace("complete.html");
     }
@@ -133,10 +134,20 @@ function battle(number)
         enemyAttack = 8;
         update();
     }
-    else if (number == 6)
+    else if (number == 5)
     {
-        text.innerHTML = "You loot the tree and get 5 medkits and a Large HyperBlaster. it does 150 damage. there is also some level 3 body armor, which you equip. ";
-        skills += 5;
+        text.innerHTML = "You loot the tree and get 5 Large medkits, 10 small medkits,  and a Large SoftNoseHyperBlaster. It does 70 damage.<br> You also find an SoftNoseL+ pistol. It does 55 damage. <br> There is also some level 3 body armor, which you equip. <br> You go into an clearing. There is an AI boss there. it prepares to attack you.";
+        medkitsl += 5;
+        medkits += 10;
+        health += 70;
+        weapon1 = "Large SoftNoseHyperBlaster";
+        weapon1Damage = 70;
+        weapon2 = "SoftNoseL+";
+        weapon2Damage = 55;
+        enemy = "AI boss";
+        enemyHealth = 2000;
+        enemyAttack = 30;
+        
     }
 }
 
@@ -168,7 +179,7 @@ function init()
     secondaryWeaponDamage = document.getElementById("weapon2Damage");
     meleeWeaponDamage = document.getElementById("meleeDamage");
     actionStat = document.getElementById("action");
-    skills = 2;
+    medkits = 2;
     battle(1);
 }
 
@@ -179,7 +190,7 @@ function update()
     primaryWeaponStat.innerHTML = weapon1;
     secondaryWeaponStat.innerHTML = weapon2;
     meleeWeaponStat.innerHTML = melee;
-    skillLevelStat.innerHTML = skills;
+    skillLevelStat.innerHTML = medkits;
     primaryWeaponDamage.innerHTML = weapon1Damage;
     secondaryWeaponDamage.innerHTML = weapon2Damage;
     meleeWeaponDamage.innerHTML = meleeDamage;
@@ -195,15 +206,29 @@ function win()
 
 function heal()
 {
-  if (skills > 0)
+  if (medkits > 0)
   {
     health += 60;
-    skills--;
-    actionStat.innerHTML = "You used one medkit. You have " + skills + " medkits left."
+    medkits--;
+    actionStat.innerHTML = "You used one medkit. You have " + medkits + " medkit(s) left."
     update();
   }
-  else if (skills <= 0)
+  else if (medkits <= 0)
   {
       actionStat.innerHTML = "You Have No Medkits Left."
   }
+}
+
+function lheal()
+{
+    if (medkitsl > 0)
+    {
+        health += 105;
+        medkitsl--;
+        actionStat.innerHTML = "You used one Large medkit. You Have" + medkitsl + " Large Medkit(s) left.";
+    }
+    else if(medkitsl <= 0)
+    {
+        actionStat.innerHTML = "You have no Large medkits left.";
+    }
 }
