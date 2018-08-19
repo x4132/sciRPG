@@ -5,15 +5,8 @@
         <link rel="stylesheet" href="css/index.css" type="text/css" />
     </head>
     <body onload="init()">
-        <h1>Preparing you for your amazing Adventure!</h1>
-        <a id="goto"><button><h1 id="buttontext">Please Wait...</h1></button></a>
-        <script>
-            function init()
-            {
-                setTimeout(5000);
-                document.getElementById("goto").href="level1.html";
-                document.getElementById("buttontext").innerHTML = "Start!";
-            }
-        </script>
+        <h1>Choose An Level</h1>
+        <a href="level1.html"><button><h1 id="buttontext">Level 1</h1></button></a>
+        <a><button><h1>Level 2 is in development</h1></button></a>
     </body>
 </html>
