@@ -161,9 +161,9 @@ var meleeWeaponStat;
 var meleeWeaponDamage;
 var skillLevelStat;
 var text;
-var ShieldStat;
 var enemyStat;
 var actionStat;
+var largeMedkitStat;
 
 function init()
 {
@@ -180,6 +180,8 @@ function init()
     meleeWeaponDamage = document.getElementById("meleeDamage");
     actionStat = document.getElementById("action");
     medkits = 2;
+    largeMedkitStat = document.getElementById("lmedkit");
+    largeMedkitStat.innerHTML = 0;
     battle(1);
 }
 
@@ -195,6 +197,7 @@ function update()
     secondaryWeaponDamage.innerHTML = weapon2Damage;
     meleeWeaponDamage.innerHTML = meleeDamage;
     enemyStat.innerHTML = enemy;
+    largeMedkitStat.innerHTML = medkitsl;
 }
 
 function win()
