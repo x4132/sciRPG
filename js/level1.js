@@ -170,18 +170,9 @@ function init()
   enemyStat = document.getElementById("enemy");
     healthStat = document.getElementById("health");
     enemyHealthStat = document.getElementById("enemyHealth");
-    primaryWeaponStat = document.getElementById("primaryWeapon");
-    secondaryWeaponStat = document.getElementById("secondaryWeapon");
-    meleeWeaponStat = document.getElementById("meleeWeapon");
-    skillLevelStat = document.getElementById("skillLevel");
     text = document.getElementById("data");
-    primaryWeaponDamage = document.getElementById("weapon1Damage");
-    secondaryWeaponDamage = document.getElementById("weapon2Damage");
-    meleeWeaponDamage = document.getElementById("meleeDamage");
     actionStat = document.getElementById("action");
     medkits = 2;
-    largeMedkitStat = document.getElementById("lmedkit");
-    largeMedkitStat.innerHTML = 0;
     battle(1);
 }
 
@@ -189,15 +180,7 @@ function update()
 {
     healthStat.innerHTML = health;
     enemyHealthStat.innerHTML = enemyHealth;
-    primaryWeaponStat.innerHTML = weapon1;
-    secondaryWeaponStat.innerHTML = weapon2;
-    meleeWeaponStat.innerHTML = melee;
-    skillLevelStat.innerHTML = medkits;
-    primaryWeaponDamage.innerHTML = weapon1Damage;
-    secondaryWeaponDamage.innerHTML = weapon2Damage;
-    meleeWeaponDamage.innerHTML = meleeDamage;
     enemyStat.innerHTML = enemy;
-    largeMedkitStat.innerHTML = medkitsl;
 }
 
 function win()
