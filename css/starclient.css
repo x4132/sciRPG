@@ -1,0 +1,43 @@
+body{
+  font-family: "arial", "Droid sans";
+}
+
+.right {
+  float: right;
+}
+.left{
+  float: left;
+}
+
+#ship1health{
+  background-color: green;
+  width: 140px;
+  height: 140px;
+  border-radius: 75px;
+  padding: 20px;
+  float:left;
+  text-align: center;
+}
+
+#ship2health {
+  background-color: red;
+  width: 140px;
+  height: 140px;
+  border-radius: 75px;
+  padding: 20px;
+  text-align:center;
+  float:left;
+}
+
+#enemyHealth {
+  color:white;
+}
+
+#enemyStat {
+  float: left;
+}
+
+.target {
+  float: left;
+  display: block;
+}
