@@ -13,11 +13,11 @@
             <br>
           <span id="enemyHealth1"></span>
         </div>
-            <img src="img/crosshairs.svg" width="80px" onclick="selectTarget(1)" class="target"/>
+            <img src="img/crosshairs.png" onclick="selectTarget(1)" class="target"/>
       </div>
 
       <h1 id="enemyStat">
-        Spacebattle 1
+        Spacebattle <span id="battle">1</span>
         <br>
         You VS <span id="enemy">Titan &amp; Frigate</span>
         <br>
@@ -32,21 +32,22 @@
         <br>
         
       </div>
-        <img class="target" onclick="selectTarget(2)" src="img/crosshairs.svg" width="80px" />
+        <img class="target" onclick="selectTarget(2)" src="img/crosshairs.png" />
       </div>
       <br><br><br><br><br><br><br><br>
       <br>
       <div id="yourShip">
-        <h1>Your ship:</h1>
+        <h1>Your ship: (<span id="ship">Alpha</span>)/<span id="shipType">Fighter</span></h1>
         <button class="left">Regen Shield(13)</button><h2>Shield: <span id="shield">72</span>/<span id="shieldTotal">72</span></h2>
         <h2>Armor: <span id="armor">50</span>/<span id="armorTotal">50</span></h2>
         <h2>Structure: <span id="health">100</span>/<span id="healthTotal">100</span></h2>
         <h2>Power: <span id="power">100</span>/100</h2>
         <h2>Weapons:</h2>
-        <button onclick="selectWeapon(1)"><h2><span id="attack1">Turret</span>(<span id="attack1l">1</span>)</h2></button>
-        <button onclick="selectWeapon(2)"><h2><span id="attack2">Turret</span>(<span id="attack2l">2</span>)</h2></button>
-        <button onclick="selectWeapon(3)"><h2><span id="attack3">No Weapon</span>(<span id="attack3l">1</span>)</h2></button>
-        <button onclick="selectWeapon(4)"><h2><span id="attack4">No Weapon</span>(<span id="attack4l">1</span>)</h2></button>
+        <button onclick="selectWeapon(1)"><h2><span id="attack1">Turret</span>(<span id="attack1s">L:<span id="attack1l">1</span>&nbsp;P:<span id="attack1p"></span></span>)</h2></button>
+        <button onclick="selectWeapon(2)"><h2><span id="attack2">Turret</span>(<span id="attack2s">L:<span id="attack2l">1</span>&nbsp;P:<span id="attack2p"></span></span>)</h2></button>
+        <button onclick="selectWeapon(3)"><h2><span id="attack3">No Weapon</span>(<span id="attack3s">L:<span id="attack3l">1</span>&nbsp;P:<span id="attack3p"></span></span>)</h2></button>
+        <button onclick="selectWeapon(4)"><h2><span id="attack4">No Weapon</span>(<span id="attack4s">L:<span id="attack4l">1</span>&nbsp;P:<span id="attack4p"></span></span>)</h2></button>
+        <button onclick="attack()"><h2>Attack Ships</h2></button>
       </div>
     </div>
   </body>

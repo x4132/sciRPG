@@ -1,4 +1,11 @@
 var data;
+var shipdata = {
+  ship: "",
+  structure: 1,
+  armor: 1,
+  shield: 1,
+  weapons: []
+};
 
 var target1 = {
   weapon: 0,
@@ -26,7 +33,7 @@ var targetsActive = {
   target4: false
 };
 var xmlhttp = new XMLHttpRequest();
-xmlhttp.onReadyStateChange = function (){
+xmlhttp.onreadystatechange = function (){
   data = JSON.parse(this.responseText);
   console.log(data.ships.pod.type);
 };
@@ -35,17 +42,18 @@ xmlhttp.send();
 var weaponSelected = 0;
 
 
-function attack(choice)
+function attack()
 {
 }
 
 function battle(number)
 {
-}
-
-
-function init()
-{
+  switch (number) {
+    case 1:
+      console.log("Battle 1");
+      getShip("alpha");
+    break;
+  }
 }
 
 function update()
@@ -83,7 +91,6 @@ function selectTarget(targets)
           target1.target = targets;
           target1.weapon = weaponSelected;
           weaponSelected = 0;
-          console.log("selected!");
         }
       else {
         weaponSelected = 0;
@@ -97,7 +104,6 @@ function selectTarget(targets)
       target2.target = targets;
       target2.weapon = weaponSelected;
       weaponSelected = 0;
-      console.log("selected!");
     }
     else {
       weaponSelected = 0;
@@ -136,4 +142,98 @@ function selectWeapon(weapon)
 {
   weaponSelected = weapon;
   update();
+}
+
+function getShip(ship)
+{
+  switch(ship) {
+      case "pod": 
+        shipdata.shield = data.ships.pod.shield;
+        shipdata.ship = "pod";
+        shipdata.armor = data.ships.alpha.armor;
+        shipdata.structure = data.ships.alpha.structure;
+        shipdata.weapons = data.ships.alpha.weapons;
+      break;
+      case "alpha": 
+        shipdata.shield = data.ships.alpha.shield;
+        shipdata.ship = "alpha";
+        shipdata.armor = data.ships.alpha.armor;
+        shipdata.structure = data.ships.alpha.structure;
+        shipdata.weapons = data.ships.alpha.weapons;
+      break;
+  }
+}
+
+//weapon button stats
+var weapon1Stat;
+var weapon2Stat;
+var weapon3Stat;
+var weapon4Stat;
+
+//weapon level stats
+var weapon1L;
+var weapon2L;
+var weapon3L;
+var weapon4L;
+
+//weapon Level Power Usage
+var weapon1P;
+var weapon2P;
+var weapon3P;
+var weapon4P;
+
+//armor, shield, and structure.
+var structureStat;
+var armorStat;
+var shieldStat;
+
+//Ship general info
+var shipStat;
+var shipType;
+
+//enemy Stats
+var eship1Stat;
+var eship1Health;
+var eship2Stat;
+var eship2Health;
+
+//miscellaneous
+var powerStat;
+var actionStat;
+var enemyStat;
+var battleStat;
+
+function init()
+{
+  console.log("initializing...");
+  
+  weapon1Stat = document.getElementById("");
+  weapon2Stat = document.getElementById("");
+  weapon3Stat = document.getElementById("");
+  weapon4Stat = document.getElementById("");
+  
+  weapon1L = document.getElementById("");
+  weapon2L = document.getElementById("");
+  weapon3L = document.getElementById("");
+  weapon4L = document.getElementById("");
+  
+  weapon1P = document.getElementById("");
+  weapon2P = document.getElementById("");
+  weapon3P = document.getElementById("");
+  weapon4P = document.getElementById("");
+  
+  structureStat = document.getElementById("");
+  armorStat = document.getElementById("");
+  shieldStat = document.getElementById("");
+  
+  shipStat = document.getElementById("");
+  shipType = document.getElementById("");
+  
+  eship1Health = document.getElementById("");
+  eship2Health = document.getElementById("");
+  
+  eship1Stat = document.getElementById("");
+  eship2Stat = document.getElementById("");
+  battle(1);
+  console.log("initialized!");
 }
