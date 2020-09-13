@@ -1,2 +1,2 @@
 # sciRPG
-an SciFi RPG. Created by Alpha9 Studios.
+One of my old games. Probably going to improve it later.
